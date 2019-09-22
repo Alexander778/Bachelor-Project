@@ -1,0 +1,154 @@
+<mat-card class="customContainer">
+  <div>
+    <mat-card-title>KeyBoard Identification</mat-card-title>
+  </div>
+  <div>
+    <mat-form-field appearance="legacy">
+      <mat-label>Login</mat-label>
+      <input matInput placeholder="Login" #login>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-card-title>{{keyWord}}</mat-card-title>
+  </div>
+  <div>
+    <mat-form-field appearance="legacy">
+      <mat-label>KeyWord</mat-label>
+      <input matInput placeholder="Enter keyword" (keyup)="upKey($event)" (keydown)="downKey($event)"
+             (input)="checkTyping(word)" #word>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-card-title>Try</mat-card-title>
+  </div>
+  <div>
+    <mat-card
+      [ngClass]="{
+            'easyTry' : tryCounter == 3,
+            'mediumTry' : tryCounter == 2,
+            'hardTry' : tryCounter == 1
+         }"
+    ><span style="color: white;">{{tryCounter}}</span>
+    </mat-card>
+  </div>
+  <div>
+    <button type="button" mat-raised-button color="primary" [disabled]="" (click)="onCalculate(login,word)">
+      <mat-icon>cached</mat-icon>
+    </button>
+    <button style="margin-top: 20px;" mat-raised-button color="primary" (click)="ExportTOExcel()">
+    <mat-icon>get_app</mat-icon>
+    </button>
+  </div>
+</mat-card>
+
+
+<div class="example-container mat-elevation-z8 " #TABLE *ngIf="showTable">
+  <table mat-table #table [dataSource]="dataSource">
+
+    <ng-container matColumnDef="user">
+      <th mat-header-cell *matHeaderCellDef> User</th>
+      <td mat-cell *matCellDef="let element"> {{element.user}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="try">
+      <th mat-header-cell *matHeaderCellDef> Try</th>
+      <td mat-cell *matCellDef="let element"> {{element.try}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="dH">
+      <th mat-header-cell *matHeaderCellDef> dh</th>
+      <td mat-cell *matCellDef="let element"> {{element.dH}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="diDD">
+      <th mat-header-cell *matHeaderCellDef> diDD</th>
+      <td mat-cell *matCellDef="let element"> {{element.diDD}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="diUD">
+      <th mat-header-cell *matHeaderCellDef> diUD</th>
+      <td mat-cell *matCellDef="let element"> {{element.diUD}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="iH">
+      <th mat-header-cell *matHeaderCellDef> iH</th>
+      <td mat-cell *matCellDef="let element"> {{element.iH}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="ipDD">
+      <th mat-header-cell *matHeaderCellDef> ipDD</th>
+      <td mat-cell *matCellDef="let element"> {{element.ipDD}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="ipUD">
+      <th mat-header-cell *matHeaderCellDef> ipUD</th>
+      <td mat-cell *matCellDef="let element"> {{element.ipUD}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="pH">
+      <th mat-header-cell *matHeaderCellDef> pH</th>
+      <td mat-cell *matCellDef="let element"> {{element.pH}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="plDD">
+      <th mat-header-cell *matHeaderCellDef> plDD</th>
+      <td mat-cell *matCellDef="let element"> {{element.plDD}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="plUD">
+      <th mat-header-cell *matHeaderCellDef> plUD</th>
+      <td mat-cell *matCellDef="let element"> {{element.plUD}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="lH">
+      <th mat-header-cell *matHeaderCellDef> lH</th>
+      <td mat-cell *matCellDef="let element"> {{element.lH}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="loDD">
+      <th mat-header-cell *matHeaderCellDef> loDD</th>
+      <td mat-cell *matCellDef="let element"> {{element.loDD}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="loUD">
+      <th mat-header-cell *matHeaderCellDef> loUD</th>
+      <td mat-cell *matCellDef="let element"> {{element.loUD}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="oH">
+      <th mat-header-cell *matHeaderCellDef> oH</th>
+      <td mat-cell *matCellDef="let element"> {{element.oH}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="omDD">
+      <th mat-header-cell *matHeaderCellDef> omDD</th>
+      <td mat-cell *matCellDef="let element"> {{element.omDD}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="omUD">
+      <th mat-header-cell *matHeaderCellDef> omUD</th>
+      <td mat-cell *matCellDef="let element"> {{element.omUD}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="mH">
+      <th mat-header-cell *matHeaderCellDef> mH</th>
+      <td mat-cell *matCellDef="let element"> {{element.mH}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="maDD">
+      <th mat-header-cell *matHeaderCellDef> maDD</th>
+      <td mat-cell *matCellDef="let element"> {{element.maDD}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="maUD">
+      <th mat-header-cell *matHeaderCellDef> maUD</th>
+      <td mat-cell *matCellDef="let element"> {{element.maUD}}</td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+<div>
+

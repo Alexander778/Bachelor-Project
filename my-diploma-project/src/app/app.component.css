@@ -1,0 +1,38 @@
+
+.customContainer{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    border: 2px purple solid;
+    margin: 0 auto;
+}
+
+.customContainer > div {
+    margin: 0 auto;
+}
+.customContainer > div > button {
+    margin: 10px;
+}
+.mat-display-1{
+    margin: 0 auto;
+}
+
+.easyTry{
+  background-color: rebeccapurple;
+}
+
+.mediumTry{
+  background-color: mediumpurple;
+}
+.hardTry{
+  background-color: pink;
+}
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+  max-height: 500px;
+  min-width: 300px;
+  overflow: auto;
+  margin-top: 20px;
+}
