@@ -4,4 +4,4 @@ This is a simple one page application written by Angular 5, Angular Material wit
 
 The main purpose of this programm is count timings of holding keys, time between pushing down and pushing up two different keys and export this data to excel.
 
-This programm do not analyse or identify users, it's only getting data.
+This programm do not analyse or identify users, it only gets data.
